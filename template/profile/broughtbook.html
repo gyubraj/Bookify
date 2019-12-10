@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{%load static %}
+
+
+{% block title %} Brought Book {% endblock %}
+
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+{% include 'profile/profile_base.html' %}
+
+
+<div class="container" style={bgcolor}>
+    <h2>Brought Books</h2>
+    <div class="row">
+        {%for broughtbook in broughtbooks%}
+        <div class="wrapper">
+        </div>
+        <div class="col columns col-lg-2">
+            <div class="product-top">
+                <img src="{{broughtbook.image.url}}" width="100" height="100" alt="...">
+
+                <div class="product-bottom text-center">
+                    <h3>{{broughtbook.bname}}</h3>
+                    <h5>Rs.{{book.display_selling_price}}</h5>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+
+{% endblock %}

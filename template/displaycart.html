@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Cart {% endblock %}
+
+{% block link %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+{% endblock %}
+
+
+{% block content %}
+
+
+{% if not cart%}
+<br><br>
+<h3>You have added nothing.</h3><br><br>
+
+{% else %}
+
+<h2 style="text-align:center; color:red;">Cart View</h2>
+<table class="centered">
+    <thead>
+        <tr>
+            <th></th>
+            <th></th>
+            <th>Books</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    {% for carts in cart %}
+    <tbody>
+        <tr>
+            <td><a href="{% url 'removecart' id=carts.id %}" class="primary-btn">Remove</a></td>
+            <td><img src="{{carts.image.url}}" heigth="100px" width="100px" alt="book1"></td>
+            <td>{{carts.bookname}}</td>
+            <td>Rs.{{carts.price}}</td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+<br><br><br><br>
+<div class="d-flex flex-row-reverse" style="margin-right:7em; margin-top: 1em;">
+    <h5>Total: Rs.{{total}}</h5>
+    <br>
+</div>
+<!-- <div class="d-flex flex-row-reverse" style="margin-right:5em; margin-top: 1em;">
+    <br>
+    <a class="my-btn btn">Checkout</a>
+</div> -->
+
+{% endif %}
+{% endblock %}

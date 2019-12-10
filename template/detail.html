@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+
+{% block link %}
+    <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/> -->
+    <link rel="stylesheet" href="{% static 'css/detailcss.css'%}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css'>
+  
+
+{% endblock %}
+
+{% block title %}Book Detail{% endblock %}
+
+
+{% block internalCss %} 
+body{
+  background-color: #f9f9f9}
+{% endblock %}
+
+ 
+
+
+{% block content %}
+    <div class="container" ">
+        <div class="row">
+            <div class="col-md-4">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <img src="{{object.image.url}}"  height="400px" class="d-block w-100"   alt="img">
+                              </div>
+                              <!-- <div class="carousel-item">
+                                <img src="" class="d-block w-100" alt="...">
+                              </div> -->
+                              
+                            </div>
+                           
+                          </div>
+
+            </div>
+           
+            <div class="col-md-8">
+                {% if object.condition == 'Brand New' %}
+                <p class="newarrival text-center">BRAND NEW</p>
+                {% elif object.condition == 'Like New' %}
+                <p class="newarrival text-center">LIKE NEW</p>
+                {% else %}
+                <p class="newarrival text-center">OLD</p>
+                {% endif %}
+                <h2>{{object.bname}}</h2>
+                <p>{{object.description}}</p>
+
+                {% if  object.donation %}
+                <h3><b>For Donation</b></h3>
+                {% else %}
+                <p class="price">Rs. {{object.selling_price}}</p>
+                {% endif %}
+                {% if object.status == 'available' %}
+                <p><b>Availability:</b> In stock</p>
+                {% endif %}
+                <p><b>Publication:</b> {{object.publication}}</p>
+                <p><b>Author:</b> {{object.writer}}</p>
+                <p><b>Category</b> {{object.category}}</p>
+
+                {% if not object.donation %}
+                {% if object.status == 'available' %}
+               <a style="margin-right: 10px;" href="{% url 'checkout' id=object.id %}" class="primary-btn"> Checkout </a>
+               <a href="{% url 'cart' id=object.id %}" class="primary-btn">Add To Cart</a>
+               {% else %}
+              <br> <h5 style="color: red;">Book has been already sold. Try Searching another Similar Book</h5>
+               {% endif %}
+               {% endif %}
+               
+               
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+
+
+    {% endblock %}

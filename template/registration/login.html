@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login</title>
+  <link rel="stylesheet" href="{% static 'prabhav/css/reg.css' %}">
+
+</head>
+
+<body>
+  <div class="page-wrapper bg-blue p-t-100 p-b-100 font-robo">
+    <div class="wrapper wrapper--w680">
+      <div class="card card-1">
+        <div class="card-heading" style="background-image: url({% static 'img/b_library.jpg' %}); background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: cover;"></div>
+        <div class="card-body">
+          <h2 class="title">Login</h2>
+          <form method="POST">
+
+            {% csrf_token %}
+            {% for field in form %}
+            <p>
+              <div class="input-group">
+                {{ field.label_tag }}<br>
+                <!-- <input class="input--style-1" type="text"> -->
+                {{ field }}
+              </div>
+              {% if field.help_text %}
+              <!-- <small style="color: grey">{{ field.help_text }}</small> -->
+              {% endif %}
+              {% for error in field.errors %}
+              <p style="color: red">{{ error }}</p>
+              {% endfor %}
+            </p>
+            {% endfor %}
+            <div class="p-t-20">
+              <button class="btn btn--radius btn--green " type="submit">Login</button><br><br>
+              <a href="{% url 'signup' %}" style=" text-decoration: none; color: #e50914; font-size: 1rem; ">Register
+                Now !!!</a>
+              <a href="{% url 'password_reset' %}"
+                style="text-decoration: none; color: #e50914; margin-left: 15em; font-size: 1rem;">Forget
+                password?</a>
+            </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+<!-- {% block content %}
+{% load crispy_forms_tags %}
+
+
+
+
+<h2>Sign up</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Sign In</button>
+</form>
+
+</body>
+
+</html>
+
+
+{% endblock %} -->

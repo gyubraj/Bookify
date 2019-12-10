@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{%load static %}
+
+
+{% block title %} Donated Book {% endblock %}
+
+{% block link %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+
+{% include 'profile/profile_base.html' %}
+
+
+<div class="container">
+    <h2>Donated Books</h2>
+    <div class="row">
+        {%for book in books%}
+
+        <div class="wrapper">
+
+        </div>
+        <div class="col columns col-lg-2">
+            <div class="product-top">
+                <img src="{{book.image.url}}" width="100" height="100" alt="...">
+
+
+                <div class="product-bottom text-center">
+
+                    <h3>{{book.bname}}</h3>
+                    {{book.uploaddate}}
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

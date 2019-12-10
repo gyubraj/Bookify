@@ -1,0 +1,796 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block title %} main file {% endblock %}
+
+
+{% block content %}
+
+	<!-- NAVIGATION -->
+	<div id="navigation">
+		<!-- container -->
+		<div class="container">
+			<div id="responsive-nav">
+				<!-- category nav -->
+				<div class="category-nav">
+					<span class="category-header">Categories <i class="fa fa-list"></i></span>
+					<ul class="category-list">
+						<li><a href="{% url 'bachelor' %}">Bachelor</a></li>
+						<li><a href="{% url 'master' %}">Master</a></li>
+						<li><a href="{% url 'plustwo' %}">+2</a></li>
+						<li><a href="{% url 'see' %}">SEE</a></li>
+						<li><a href="{% url 'school' %}">School</a></li>
+						<li><a href="{% url 'diploma' %}">Diploma</a></li>
+						<li><a href="{% url 'extra' %}">Extra</a></li>
+						<li><a href="#">View All</a></li>
+
+
+					</ul>
+				</div>
+				<!-- /category nav -->
+
+
+
+
+
+				<!-- menu nav -->
+				<div class="menu-nav">
+					<span class="menu-header">Menu <i class="fa fa-bars"></i></span>
+					<ul class="menu-list">
+						<li><a href="#">Home</a></li>
+						<li><a href="#">My Account</a></li>
+						<li><a href="#">Latest Collection</a></li>
+						<li><a href="{% url 'book' %}">Sell/Donate</a></li>
+						<li><a href="#">About us</a></li>
+					
+					</ul>
+				</div>
+				<!-- menu nav -->
+			</div>
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /NAVIGATION -->
+
+
+
+
+	
+	<!-- HOME -->
+	<div id="home">
+		<!-- container -->
+		<div class="container">
+			<!-- home wrap -->
+			<div class="home-wrap">
+				<!-- home slick -->
+				<div id="home-slick">
+
+					{% for slide in homeSlide %}								
+					<!-- banner -->
+
+					<div class="banner banner-1">
+						<img src="{{slide.image.url}}" height="358px" alt="">
+						<div class="banner-caption text-center">
+							<h1>{{slide.text1|default_if_none:''}}</h1>
+							<h3 class="white-color font-weak">{{slide.text2|default_if_none:''}}</h3>
+                          
+                            {% if slide.show %}
+							<button class="primary-btn">Shop Now</button>
+							{% endif %}
+						</div>
+					</div>
+					<!-- /banner -->
+					{% endfor %}
+
+
+					
+
+					
+				</div>
+				<!-- /home slick -->
+			</div>
+			<!-- /home wrap -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /HOME -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- end of scroll div -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- section -->
+	<div class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- section-title -->
+				<div class="col-md-12">
+					<div class="section-title">
+						<h2 class="title">Deals Of The Day</h2>
+						<div class="pull-right">
+							<div class="product-slick-dots-1 custom-dots"></div>
+						</div>
+					</div>
+				</div>
+				<!-- /section-title -->
+
+				<!-- banner -->
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<div class="banner banner-2">
+						<img src="{% static 'img/banner14.jpg' %}" alt="">
+						<div class="banner-caption">
+							<h2 class="white-color">NEW<br>COLLECTION</h2>
+							<button class="primary-btn">Shop Now</button>
+						</div>
+					</div>
+				</div>
+				<!-- /banner -->
+
+				<!-- Product Slick -->
+				<div class="col-md-9 col-sm-6 col-xs-6">
+					<div class="row">
+						<div id="product-slick-1" class="product-slick">
+							<!-- Product Single -->
+							<div class="product product-single">
+								<div class="product-thumb">
+									<div class="product-label">
+										<span>New</span>
+										<span class="sale">-20%</span>
+									</div>
+									<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
+									<img src="{% static 'img/product01.jpg' %}" alt="">
+								</div>
+								<div class="product-body">
+									<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
+									<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
+									<div class="product-btns">
+										<button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+									</div>
+								</div>
+							</div>
+							<!-- /Product Single -->
+
+							
+						</div>
+					</div>
+				</div>
+				<!-- /Product Slick -->
+			</div>
+			<!-- /row -->
+
+
+	<!-- second row of deal item here  -->
+
+
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /section -->
+
+
+
+
+
+
+
+
+<!-- end of deal of day -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- section -->
+	<div class="section section-grey">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- banner -->
+				<div class="col-md-8">
+					<div class="banner banner-1">
+						<img src="{% static 'img/banner13.jpg' %}" alt="">
+						<div class="banner-caption text-center">
+							<h1 class="primary-color">HOT DEAL<br><span class="white-color font-weak">Up to 50% OFF</span></h1>
+							<button class="primary-btn">Shop Now</button>
+						</div>
+					</div>
+				</div>
+				<!-- /banner -->
+
+				<!-- banner -->
+				<div class="col-md-4 col-sm-6">
+					<a class="banner banner-1" href="#">
+						<img src="{% static 'img/banner11.jpg' %}" alt="">
+						<div class="banner-caption text-center">
+							<h2 class="white-color">NEW COLLECTION</h2>
+						</div>
+					</a>
+				</div>
+				<!-- /banner -->
+
+				<!-- banner -->
+				<div class="col-md-4 col-sm-6">
+					<a class="banner banner-1" href="#">
+						<img src="{% static 'img/banner12.jpg' %}" alt="">
+						<div class="banner-caption text-center">
+							<h2 class="white-color">NEW COLLECTION</h2>
+						</div>
+					</a>
+				</div>
+				<!-- /banner -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /section -->
+
+	<!-- section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- section title -->
+					<div class="col-md-12">
+						<div class="section-title">
+							<h2 class="title">Latest Products</h2>
+						</div>
+					</div>
+					<!-- section title -->
+	
+					
+
+{% for obj in object %}
+{% include 'snippets/card.html' with instance=obj %}
+
+{% endfor %}
+
+
+                  
+                    
+
+
+
+
+	
+				</div>
+				<!-- /row -->
+	
+				
+				<!-- /row -->
+	
+				<!-- row -->
+				<div class="row">
+					<!-- section title -->
+					<div class="col-md-12">
+						<div class="section-title">
+							<h2 class="title">Featured Product</h2>
+						</div>
+					</div>
+					<!-- section title -->
+	
+					<!-- Product Single -->
+					<div class="col-md-3 col-sm-6 col-xs-6">
+						<div class="product product-single">
+							<div class="product-thumb">
+								<div class="product-label">
+									<span>New</span>
+									<span class="sale">-20%</span>
+								</div>
+								<button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
+								<img src="{% static 'img/product02.jpg' %}" height="250px" alt="img">
+							</div>
+							<div class="product-body">
+								<h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
+								<h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
+							</div>
+						</div>
+					</div>
+					<!-- /Product Single -->
+	
+					
+	
+				
+	
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- FOOTER -->
+	<footer id="footer" class="section section-grey">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- footer widget -->
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<div class="footer">
+						<!-- footer logo -->
+						<div class="footer-logo">
+							<a class="logo" href="#">
+		            <img src="{% static 'img/logo.png' %}" alt="">
+		          </a>
+						</div>
+						<!-- /footer logo -->
+
+						<p> Bookify allow users to buy, sell and donate the old books. With this application buyers can buy books at an affordable price, sellers can get paid what they deserve and donators can get rewards.</p>
+
+						<!-- footer social -->
+						<ul class="footer-social">
+							<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#"><i class="fab fa-google-plus"></i></a></li>
+							<li><a href="#"><i class="fab fa-pinterest"></i></a></li>
+						</ul>
+						<!-- /footer social -->
+					</div>
+				</div>
+				<!-- /footer widget -->
+
+				<!-- footer widget -->
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<div class="footer">
+						<h3 class="footer-header">My Account</h3>
+						<ul class="list-links">
+							<li><a href="#">My Profile</a></li>
+							<li><a href="#">Login</a></li>
+							<li><a href="#">Create New Account</a></li>
+
+						</ul>
+					</div>
+				</div>
+				<!-- /footer widget -->
+
+				<div class="clearfix visible-sm visible-xs"></div>
+
+				<!-- footer widget -->
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<div class="footer">
+						<h3 class="footer-header">Customer Service</h3>
+						<ul class="list-links">
+							<li><a href="#">About Us</a></li>
+							<li><a href="#">Shiping & Return</a></li>
+							<li><a href="#">Shiping Guide</a></li>
+							<li><a href="#">FAQ</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- /footer widget -->
+
+				<!-- footer subscribe -->
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<div class="footer">
+						<h3 class="footer-header">Stay Connected</h3>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+						<form>
+							<div class="form-group">
+								<input class="input" placeholder="Enter Email Address">
+							</div>
+							<button class="primary-btn">Join Newslatter</button>
+						</form>
+					</div>
+				</div>
+				<!-- /footer subscribe -->
+			</div>
+			<!-- /row -->
+			<hr>
+			<!-- row -->
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<!-- footer copyright -->
+					<div class="footer-copyright">
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+						 &copy;&nbsp<script>document.write(new Date().getFullYear());</script> All rights reserved to <a href="https://bookify.com" target="_blank">Bookify</a>
+						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					</div>
+					<!-- /footer copyright -->
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</footer>
+	<!-- /FOOTER -->
+
+	<!-- jQuery Plugins -->
+	<script src="{% static 'jshome/jquery.min.js' %}"></script>
+	<script src="{% static 'jshome/bootstrap.min.js' %}"></script>
+	<script src="{% static 'jshome/slick.min.js' %}"></script>
+	<script src="{% static 'jshome/nouislider.min.js' %}"></script>
+	<script src="{% static 'jshome/jquery.zoom.min.js' %}"></script>
+	<script src="{% static 'jshome/main.js' %}"></script>
+
+
+	{% endblock %}

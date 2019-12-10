@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous"> -->
+
+    </head>
+    <body>
+        <div class="col-md-3 col-sm-6 col-xs-6">
+            <a href="#">
+            <div class="product product-single">
+              <div class="product-thumb">
+                <div class="product-label">
+                    {% if not bookData.available %}
+                    <span>Sold</span>
+                    {% endif %}
+                   </div>
+                <button class="main-btn quick-view"> <a href="{{instance.get_absolute_url}}"><i class="fa fa-search-plus"></i> Quick view </a> </button>
+                <img src="{{instance.image.url}}" height="300px" alt="img">
+              </div>
+              <div class="product-body">
+                  <!-- <a href="{{instance.get_absolute_url}}" class="btn btn-primary">View</a> -->
+                  <h3 class="product-name">{{instance.bname}}</h3>
+                 <h3 class="product-price">
+                  {% if instance.donation %} 
+                  For Donation
+                 
+                  {% else %}
+                  Rs.{{instance.selling_price}} 
+                  {% endif %}
+                  </h3>
+              </div>
+            </div>
+          </a>
+          </div>
+    </body>
+</html>

@@ -1,0 +1,81 @@
+{% load static %}
+{% static "images" as baseURL %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}"> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+
+
+</head>
+
+<body style="background-color:#f5f5f5;">
+
+    <div id="user-profile-2" class="user-profile">
+        <div class="tabbable">
+            <ul class="nav nav-tabs padding-18">
+                <li class="active">
+                    <a href="{% url 'profile' %}">
+                        <i class="green ace-icon fa fa-user bigger-120"></i>
+                        Profile
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'mybooks' %}">
+                        <i class="orange ace-icon fa fa-rss bigger-120"></i>
+                        My Books
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'soldbooks' %}">
+                        <i class="blue ace-icon fa fa-users bigger-120"></i>
+                        Sold Books
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'broughtbook' %}">
+                        <i class="pink ace-icon fa fa-book bigger-120"></i>
+                        Brought Book
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'onsellbook' %}">
+                        <i class="pink ace-icon fa fa-book bigger-120"></i>
+                        On Sell
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{% url 'donatedbooks' %}">
+                        <i class="pink ace-icon fa fa-book bigger-120"></i>
+                        Donation
+                    </a>
+                </li>
+
+
+            </ul>
+            <div class="tab-content no-border padding-24">
+                {% block content %}
+
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

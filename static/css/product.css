@@ -1,0 +1,43 @@
+.container{
+    margin-top:100px;
+}
+.newarrival{
+    background: green;
+    width: 50px;
+    color:white;
+    font-size:12px;
+    font-weight:bold;
+}
+.col-md-7 h2{
+    color:#555;
+    font-size:200px;
+
+}
+.star{
+    height: 15px;
+    
+}
+.price{
+    color: #FF980F;
+    font-size:26px;
+    font-weight: bold;
+    padding-top: 20px;
+
+}
+input{
+    border: 1px solid #ccc;
+    font-weight: bold;
+    height: 33px;
+    text-align: center;
+    width:30px;
+}
+.buy{
+    border: none;
+    background-color: #fe980f;
+    color: white;
+    font-size:15px;
+    font-weight: bold;
+    margin-left:20px;
+    height: 30px;
+    border-radius: 4px;
+}
