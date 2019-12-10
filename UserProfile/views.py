@@ -20,7 +20,7 @@ def mybooks(request):
 
 @login_required
 def onsell(request):
-    book = Book.objects.filter(bookowner=request.user.id ,status ='available',donation=False)
+    book = Book.objects.filter(bookowner=request.user.id ,donation=False).exclude(status='clear')
     book=reversed(book)
     return render(request, 'profile/onsell.html', {'books': book})
 

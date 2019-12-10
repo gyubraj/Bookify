@@ -50,6 +50,7 @@ urlpatterns = [
      path('accounts/', include('django.contrib.auth.urls')),
 
      path('cartwork/',include('cart.urls')),
+     path('about/', include('others.urls')),
 
 
     
